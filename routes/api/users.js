@@ -65,7 +65,7 @@ router.post(
         },
       };
 
-      /* Creating JWT */
+      /* Creating and returning JWT */
       jwt.sign(
         payload,
         config.get('jwtSecret'),
