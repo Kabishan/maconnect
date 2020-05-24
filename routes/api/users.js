@@ -58,12 +58,14 @@ router.post(
       /* Saving the user to MongoDB */
       await user.save();
 
+      /* Setting payload for JWT */
       const payload = {
         user: {
           id: user.id,
         },
       };
 
+      /* Creating JWT */
       jwt.sign(
         payload,
         config.get('jwtSecret'),
