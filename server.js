@@ -6,6 +6,9 @@ const app = express();
 /* Connect the Mongo database */
 connectDB();
 
+/* Body parser middleware */
+app.use(express.json({ extended: false, encodedUrl: true }));
+
 app.get('/', (req, res) => res.send('API Running'));
 
 /* Routes */

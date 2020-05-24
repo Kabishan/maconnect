@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Kabishan:kabishan099@devconnect-jpikz.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://kabishan:kabishan@maconnect-jwwet.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
 }
