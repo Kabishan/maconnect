@@ -100,4 +100,43 @@ router.post(
   }
 );
 
+// @route    GET api/profile
+// @brief    Get all of the profiles
+// @access   Public
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    res.json(profiles);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route    GET api/profile/:id
+// @brief    Get profile with the user id
+// @access   Public
+router.get('/:id', async (req, res) => {
+  try {
+    const profile = await Profile.findOne({
+      user: req.params.id,
+    }).populate('user', ['name', 'avatar']);
+
+    if (!profile) {
+      return res.status(400).json({ msg: 'User does not exist' });
+    }
+
+    res.json(profile);
+  } catch (error) {
+    console.error(error.message);
+
+    /* Adding this to prevent security risks */
+    if (error.kind === 'ObjectId') {
+      return res.status(400).json({ msg: 'User does not exist' });
+    }
+
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
