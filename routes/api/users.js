@@ -7,9 +7,9 @@ const config = require('config');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 
-// @route   POST api/users
-// @desc    Register user
-// @access  Public
+// @route    POST api/users
+// @brief    Register user
+// @access   Public
 router.post(
   '/',
   /* Using express-validator for clean error handling */

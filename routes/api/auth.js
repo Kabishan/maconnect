@@ -7,9 +7,9 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
-// @route   GET api/auth
-// @desc    Obtaining user information
-// @access  Public
+// @route    GET api/auth
+// @brief    Obtaining user information
+// @access   Public
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
@@ -20,9 +20,9 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// @route   POST api/auth
-// @desc    Logging in user
-// @access  Public
+// @route    POST api/auth
+// @brief    Logging in user
+// @access   Public
 router.post(
   '/',
   /* Using express-validator for clean error handling */
