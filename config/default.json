@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://kabishan:kabishan@maconnect-jwwet.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "b7e098bff1264d4731f2",
+  "githubSecret": "3e4b6634090f081cc7c829f80f70885aa7a3d21f"
 }
