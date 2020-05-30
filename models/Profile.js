@@ -30,7 +30,7 @@ const ProfileSchema = new mongoose.Schema({
   },
   experiences: [
     {
-      title: {
+      position: {
         type: String,
         required: true,
       },
@@ -40,7 +40,6 @@ const ProfileSchema = new mongoose.Schema({
       },
       location: {
         type: String,
-        required: true,
       },
       from: {
         type: Date,
@@ -48,7 +47,6 @@ const ProfileSchema = new mongoose.Schema({
       },
       to: {
         type: Date,
-        required: true,
       },
       current: {
         type: Boolean,
@@ -69,13 +67,16 @@ const ProfileSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      fieldofstudy: {
+        type: String,
+        required: true,
+      },
       from: {
         type: Date,
         required: true,
       },
       to: {
         type: Date,
-        required: true,
       },
       current: {
         type: Boolean,
