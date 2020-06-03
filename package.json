@@ -1,7 +1,7 @@
 {
   "name": "maconnect",
   "version": "1.0.0",
-  "description": "Social network for McMaster software students",
+  "description": "Social network for McMaster students",
   "main": "server.js",
   "scripts": {
     "start": "node server",
