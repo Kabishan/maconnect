@@ -15,12 +15,10 @@ const Register = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async e => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents default submit behaviour
 
     if (password !== password2) console.log('Passwords do not match');
-    else {
-      console.log('Success');
-    }
+    else console.log('Success');
   };
 
   return (
@@ -28,7 +26,7 @@ const Register = () => {
       <section className='container'>
         <h1 className='large text-primary'>Sign Up</h1>
         <p className='lead'>
-          <i className='fas fa-user'></i> Create Account
+          <i className='fa fa-user' aria-hidden='true' /> Create Account
         </p>
         <form className='form' onSubmit={e => onSubmit(e)}>
           <div className='form-group'>

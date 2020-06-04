@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  /* Using useState hook to maintain state level 
+  property values with using a class */
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -13,7 +15,8 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async e => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents default submit behaviour
+
     console.log('Success');
   };
 
@@ -22,7 +25,7 @@ const Login = () => {
       <section className='container'>
         <h1 className='large text-primary'>Login</h1>
         <p className='lead'>
-          <i className='fas fa-user' /> Sign Into Account
+          <i className='fa fa-user' aria-hidden='true' /> Sign Into Account
         </p>
         <form className='form' onSubmit={e => onSubmit(e)}>
           <div className='form-group'>
