@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,7 +23,7 @@ const Register = ({ setAlert }) => {
     e.preventDefault(); // Prevents default submit behaviour
 
     if (password !== password2) setAlert('Passwords do not match', 'danger');
-    else console.log('Success');
+    else register({ name, email, password });
   };
 
   return (
@@ -39,7 +40,6 @@ const Register = ({ setAlert }) => {
             name='name'
             value={name}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className='form-group'>
@@ -49,10 +49,9 @@ const Register = ({ setAlert }) => {
             name='email'
             value={email}
             onChange={e => onChange(e)}
-            required
           />
           <small className='form-text'>
-            Use a Gravatar email for a profile picture
+            <strong>OPTIONAL</strong> Use a Gravatar email for a profile picture
           </small>
         </div>
         <div className='form-group'>
@@ -62,11 +61,9 @@ const Register = ({ setAlert }) => {
             name='password'
             value={password}
             onChange={e => onChange(e)}
-            minLength='6'
-            required
           />
           <small className='form-text'>
-            Enter a password that is more than six characters
+            Enter a password that is six or more characters
           </small>
         </div>
         <div className='form-group'>
@@ -76,8 +73,6 @@ const Register = ({ setAlert }) => {
             name='password2'
             value={password2}
             onChange={e => onChange(e)}
-            minLength='6'
-            required
           />
         </div>
         <div className='form-group'>
@@ -93,6 +88,7 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);

@@ -7,7 +7,11 @@ const Navbar = () => {
     <nav className='navbar bg-dark'>
       <h1>
         <Link to='/'>
-          <img src={logo} alt='McMaster Crest' style={{ width: '4.25%' }} />{' '}
+          <img
+            src={logo}
+            alt='McMaster Crest'
+            style={{ maxWidth: '4.25%', maxHeight: 'auto' }}
+          />{' '}
           MAConnect
         </Link>
       </h1>
