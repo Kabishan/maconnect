@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Landing = ({ auth: { isAuthenticated, loading } }) => {
   const authLinks = (
     <Fragment>
-      <p className='lead'>Welcome to MAConnect, visit your dashboard now</p>
+      <p className='lead'>Welcome to MAConnect, visit your dashboard</p>
       <div className='buttons'>
         <Link to='/dashboard' className='btn btn-primary'>
           Dashboard
@@ -54,4 +54,4 @@ const mapStateToProps = state => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, {})(Landing);
+export default connect(mapStateToProps)(Landing);
