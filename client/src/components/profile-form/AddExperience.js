@@ -34,10 +34,10 @@ const AddExperience = ({ addExperience, history }) => {
     <Fragment>
       <h1 className='large text-primary'>Add An Experience</h1>
       <p className='lead'>
-        <i className='fas fa-code-branch'></i> Add any of the positions that you
+        <i className='fa fa-black-tie'></i> Add any of the positions that you
         have held in the past
       </p>
-      <small>* = Required</small>
+      <small>* Required</small>
       <form
         className='form'
         onSubmit={e => {
@@ -119,9 +119,9 @@ const AddExperience = ({ addExperience, history }) => {
           ></textarea>
         </div>
         <input type='submit' className='btn btn-primary my-1' />
-        <a className='btn btn-light my-1' href='dashboard.html'>
+        <Link to='/dashboard' className='btn btn-light my-1'>
           Go Back
-        </a>
+        </Link>
       </form>
     </Fragment>
   );

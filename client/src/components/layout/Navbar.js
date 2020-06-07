@@ -12,12 +12,10 @@ const Navbar = ({ logout, auth: { user, isAuthenticated, loading } }) => {
         Hello, <strong>{user && user.name.split(' ')[0]} </strong>
       </li>
       <li>
-        <div>
-          <Link to='/dashboard'>
-            <i className='fa fa-user' aria-hidden='true'></i>{' '}
-            <span className='hide-sm'>Dashboard</span>
-          </Link>
-        </div>
+        <Link to='/dashboard'>
+          <i className='fa fa-user' aria-hidden='true'></i>{' '}
+          <span className='hide-sm'>Dashboard</span>
+        </Link>
       </li>
       <li>
         <a onClick={logout}>

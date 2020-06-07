@@ -52,7 +52,7 @@ const CreateProfile = ({ createProfile, history }) => {
         <i className='fa fa-user'></i> Please take your time to fill out these
         details
       </p>
-      <small>* = required</small>
+      <small>* Required</small>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
