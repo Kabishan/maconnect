@@ -6,17 +6,18 @@ const ProfileSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user',
   },
-  company: {
-    type: String,
-  },
   website: {
     type: String,
   },
   location: {
     type: String,
   },
-  occupation: {
+  degree: {
     type: String,
+    required: true,
+  },
+  year: {
+    type: Number,
     required: true,
   },
   skills: {

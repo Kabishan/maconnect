@@ -1,14 +1,15 @@
 import React, { useState, Fragment } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { createProfile } from '../../actions/profile';
 
-const CreateProfile = props => {
+const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
-    company: '',
     website: '',
     location: '',
-    status: '',
+    degree: '',
+    year: null,
     skills: '',
     githubusername: '',
     bio: '',
@@ -22,10 +23,10 @@ const CreateProfile = props => {
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   const {
-    company,
     website,
     location,
-    status,
+    degree,
+    year,
     skills,
     githubusername,
     bio,
@@ -39,6 +40,11 @@ const CreateProfile = props => {
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const onSubmit = e => {
+    e.preventDefault();
+
+    createProfile(formData, history);
+  };
   return (
     <Fragment>
       <h1 className='large text-primary'>Create Your Profile</h1>
@@ -47,40 +53,29 @@ const CreateProfile = props => {
         details
       </p>
       <small>* = required</small>
-      <form className='form'>
+      <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
-          <select name='status' value={status} onChange={e => onChange(e)}>
-            <option value='0'>Select Professional Status</option>
-            <option value='Developer'>Developer</option>
-            <option value='Junior Developer'>Junior Developer</option>
-            <option value='Senior Developer'>Senior Developer</option>
-            <option value='Manager'>Manager</option>
-            <option value='Student or Learning'>Student or Learning</option>
-            <option value='Instructor'>Instructor</option>
-            <option value='Intern'>Intern</option>
-            <option value='Other'>Other</option>
+          <input
+            type='text'
+            placeholder='Degree'
+            name='degree'
+            value={degree}
+            onChange={e => onChange(e)}
+          />
+          <small class='form-text'>Degree you are pursuing at McMaster</small>
+        </div>
+        <div className='form-group'>
+          <select name='year' value={year} onChange={e => onChange(e)}>
+            <option value='0'>Select Year</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
           </select>
-          <small className='form-text'>Where are you at in your career?</small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Company'
-            name='company'
-            value={company}
-            onChange={e => onChange(e)}
-          />
-          <small class='form-text'>The organization you work for</small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Website'
-            name='website'
-            value={website}
-            onChange={e => onChange(e)}
-          />
-          <small class='form-text'>Your own website or company website</small>
+          <small className='form-text'>
+            Where year are you in your program
+          </small>
         </div>
         <div className='form-group'>
           <input
@@ -103,6 +98,16 @@ const CreateProfile = props => {
           <small class='form-text'>
             Please use comma separated values (e.g. Java, Python, HTML)
           </small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Website'
+            name='website'
+            value={website}
+            onChange={e => onChange(e)}
+          />
+          <small class='form-text'>Your own website or company website</small>
         </div>
         <div className='form-group'>
           <input
@@ -202,6 +207,8 @@ const CreateProfile = props => {
   );
 };
 
-CreateProfile.propTypes = {};
+CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+};
 
-export default CreateProfile;
+export default connect(null, { createProfile })(withRouter(CreateProfile));

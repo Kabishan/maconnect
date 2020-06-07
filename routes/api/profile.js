@@ -35,7 +35,8 @@ router.post(
   [
     auth,
     [
-      check('occupation', 'Occupation is required').not().isEmpty(),
+      check('degree', 'Degree is required').not().isEmpty(),
+      check('year', 'Year is required').not().isEmpty(),
       check('skills', 'Skills are required').not().isEmpty(),
     ],
   ],
@@ -47,11 +48,11 @@ router.post(
 
     /* Destructuring */
     const {
-      company,
       website,
       location,
       bio,
-      occupation,
+      degree,
+      year,
       githubusername,
       skills,
       facebook,
@@ -61,11 +62,11 @@ router.post(
 
     const profileFields = {};
     profileFields.user = req.user.id;
-    if (company) profileFields.company = company;
     if (website) profileFields.website = website;
     if (location) profileFields.location = location;
     if (bio) profileFields.bio = bio;
-    if (occupation) profileFields.occupation = occupation;
+    if (degree) profileFields.degree = degree;
+    if (year) profileFields.year = year;
     if (githubusername) profileFields.githubusername = githubusername;
     if (skills) {
       profileFields.skills = skills.split(',').map(skill => skill.trim());
