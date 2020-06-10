@@ -244,7 +244,7 @@ export const deleteProfile = () => async dispatch => {
     window.confirm('Are you sure? Deletion of your profile is irreversible!')
   ) {
     try {
-      const res = await axios.delete(`/api/profile`);
+      await axios.delete(`/api/profile`);
 
       dispatch({
         type: CLEAR_PROFILE,
