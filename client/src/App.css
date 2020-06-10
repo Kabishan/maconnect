@@ -220,7 +220,8 @@ img {
 }
 
 .round-img {
-  border-radius: 50%;
+  border-radius: 20%;
+  width: 150px;
 }
 
 .line {
@@ -358,12 +359,13 @@ button {
 /* Profiles Page */
 .profile {
   display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   grid-gap: 2rem;
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  border-radius: 10px;
 }
 
 /* Profile Page */

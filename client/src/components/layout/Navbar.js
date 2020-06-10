@@ -12,6 +12,9 @@ const Navbar = ({ logout, auth: { user, isAuthenticated, loading } }) => {
         Hello, <strong>{user && user.name.split(' ')[0]} </strong>
       </li>
       <li>
+        <Link to='/profiles'>Marauders</Link>
+      </li>
+      <li>
         <Link to='/dashboard'>
           <i className='fa fa-user' aria-hidden='true'></i>{' '}
           <span className='hide-sm'>Dashboard</span>
@@ -29,7 +32,7 @@ const Navbar = ({ logout, auth: { user, isAuthenticated, loading } }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='!#'>Marauders</Link>
+        <Link to='/profiles'>Marauders</Link>
       </li>
       <li>
         <Link to='/register'>Register</Link>
