@@ -149,6 +149,7 @@ img {
   padding: 0.1rem;
   text-align: center;
   margin: 0.3rem;
+  border-radius: 5px;
   background: var(--light-color);
   color: #333;
 }
@@ -449,6 +450,7 @@ button {
 
 .profile-github .repo {
   display: flex;
+  border-radius: 10px;
 }
 
 .profile-github .repo > div:first-child {

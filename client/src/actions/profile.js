@@ -256,8 +256,8 @@ export const deleteProfile = () => async dispatch => {
 
       dispatch(
         setAlert(
-          'Your account has been deleted successfully. Sad to you see you go...',
-          'success',
+          'Your account has been deleted successfully. Sad to see you go...',
+          'danger',
           5000
         )
       );
