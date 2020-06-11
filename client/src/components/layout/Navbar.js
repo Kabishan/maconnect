@@ -15,6 +15,9 @@ const Navbar = ({ logout, auth: { user, isAuthenticated, loading } }) => {
         <Link to='/profiles'>Marauders</Link>
       </li>
       <li>
+        <Link to='/posts'>Posts</Link>
+      </li>
+      <li>
         <Link to='/dashboard'>
           <i className='fa fa-user' aria-hidden='true'></i>{' '}
           <span className='hide-sm'>Dashboard</span>
