@@ -2,7 +2,7 @@
 
 A social media platform for McMaster students.
 
-[Live link](https://afternoon-brook-79739.herokuapp.com)
+[Live link](https://maconnect.herokuapp.com)
 
 Hello everyone. I'm fairly certain that no one
 is going to be looking at my application. Oh,
